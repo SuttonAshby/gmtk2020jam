@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-   variableName = playedTime : float;
-   variableName = timeDisplay : GUIText;
+   type variableName = playedTime : float;
+   type variableName = timeDisplay : GUIText;
  
  void Start(){
      playedTime = 0.0;
