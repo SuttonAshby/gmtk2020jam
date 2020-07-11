@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;      //Need this here?
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour {
 
@@ -20,19 +21,20 @@ public class GameManager : MonoBehaviour {
 
 //Timer
 
-   type variableName = playedTime : float;
-   type variableName = timeDisplay : GUIText;
- 
+   public float playedTime;
+   public Text timeDisplay;
+
  public void Start(){
-     playedTime = 0.0;
+     playedTime = 0f;
  }    
  
  public void Update(){
  
      playedTime += Time.deltaTime;
-     timeDisplay.text = Mathf.RoundToInt(playedTime).ToString();
- 
+     timeDisplay.text = "Time: " + Mathf.RoundToInt(playedTime);
+     
  }
+
 
 
 
