@@ -32,59 +32,34 @@ public class MoveController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
         
+
+        var locVel = transform.InverseTransformDirection(rb.velocity);
+
         if(vertical > 0) {
-            // transform.position += transform.forward / 2;
-            var locVel = transform.InverseTransformDirection(rb.velocity);
             locVel.z = moveSpeed;
             rb.velocity = transform.TransformDirection(locVel);
-            // rb.velocity = new Vector3(0,0,1f/Time.fixedDeltaTime)/4;
         } else if(vertical < 0) {
-            var locVel = transform.InverseTransformDirection(rb.velocity);
             locVel.z = -moveSpeed;
             rb.velocity = transform.TransformDirection(locVel);
         }
 
         if(horizontal < 0) {
-            var locVel = transform.InverseTransformDirection(rb.velocity);
             locVel.x = -moveSpeed;
             rb.velocity = transform.TransformDirection(locVel);
         } else if(horizontal > 0){
-            var locVel = transform.InverseTransformDirection(rb.velocity);
             locVel.x = moveSpeed;
             rb.velocity = transform.TransformDirection(locVel);
         }
 
         if (isGrounded && Input.GetButton("Jump"))
         {
-            var locVel = transform.InverseTransformDirection(rb.velocity);
-            locVel.y = jumpSpeed - (gravity * Time.deltaTime);
+            rb.AddForce(0, jumpSpeed, 0, ForceMode.Impulse);
             isGrounded = false;
         }
-
-        // if(Input.GetKey(KeyCode.W)) {
-        //     var locVel = transform.InverseTransformDirection(rb.velocity);
-        //     locVel.z = moveSpeed;
-        //     rb.velocity = transform.TransformDirection(locVel);
-        // }
-        // if(Input.GetKey(KeyCode.S)) {
-        //     var locVel = transform.InverseTransformDirection(rb.velocity);
-        //     locVel.z = -moveSpeed;
-        //     rb.velocity = transform.TransformDirection(locVel);
-        // }
-        // if(Input.GetKey(KeyCode.A)) {
-        //     var locVel = transform.InverseTransformDirection(rb.velocity);
-        //     locVel.x = -moveSpeed;
-        //     rb.velocity = transform.TransformDirection(locVel);
-        // }
-        // if(Input.GetKey(KeyCode.D)) {
-        //     var locVel = transform.InverseTransformDirection(rb.velocity);
-        //     locVel.x = moveSpeed;
-        //     rb.velocity = transform.TransformDirection(locVel);
-        // }
     }
 }
