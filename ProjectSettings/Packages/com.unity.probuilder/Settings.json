@@ -64,6 +64,24 @@
                 "value": "{\"m_Value\":false}"
             },
             {
+<<<<<<< HEAD
+=======
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "mesh.meshColliderIsConvex",
+                "value": "{\"m_Value\":false}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "editor.showEditorNotifications",
+                "value": "{\"m_Value\":false}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "editor.closeWindowAfterShapeCreation",
+                "value": "{\"m_Value\":false}"
+            },
+            {
+>>>>>>> 5471d51fb23c2df55e8591981dbf836eeafee9cd
                 "type": "UnityEngine.ProBuilder.SelectionModifierBehavior, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "editor.rectSelectModifier",
                 "value": "{\"m_Value\":2}"
@@ -76,7 +94,11 @@
             {
                 "type": "UnityEngine.ProBuilder.SelectMode, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "editor.selectMode",
+<<<<<<< HEAD
                 "value": "{\"m_Value\":1}"
+=======
+                "value": "{\"m_Value\":129}"
+>>>>>>> 5471d51fb23c2df55e8591981dbf836eeafee9cd
             },
             {
                 "type": "UnityEngine.ProBuilder.PivotLocation, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
