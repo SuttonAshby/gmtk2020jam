@@ -12,6 +12,7 @@ public class TriggerPad : MonoBehaviour
     void Start()
     {
         defaultColor = rend.material.color;
+        defaultColor.a = 0f;
     }
 
     void OnTriggerEnter(){
