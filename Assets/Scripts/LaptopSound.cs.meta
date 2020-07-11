@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: ddfbe18100c283449875bf03b5553e3c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - laptop: {fileID: 8300000, guid: 3236db344d5f7f54d850a81b6a9707f1, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
