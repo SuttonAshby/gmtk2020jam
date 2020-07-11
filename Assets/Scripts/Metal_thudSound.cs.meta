@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 48524238e6c912a41b143e8921fee77e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - metal_thud: {fileID: 8300000, guid: 4903c0adfce04b8489a188f2b69ee5f1, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
