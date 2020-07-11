@@ -820,9 +820,9 @@ MonoBehaviour:
   sensitivity: 2
   moveSpeed: 6
   rb: {fileID: 1580012634}
-  gravity: 15
+  gravity: 1
   isGrounded: 0
-  jumpSpeed: 8
+  jumpSpeed: 6
 --- !u!114 &1580012637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,3 +836,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookSpeed: 3
+--- !u!1 &2025106553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2025106555}
+  - component: {fileID: 2025106554}
+  m_Layer: 0
+  m_Name: EventManger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2025106554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025106553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 892fd2d11469c4269af816b61e0940b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: changeGravity
+  minEventTimer: 5
+  maxEventTimer: 10
+  nextEventTimeLeft: 10
+--- !u!4 &2025106555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025106553}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.7290001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
