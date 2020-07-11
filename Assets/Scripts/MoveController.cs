@@ -49,11 +49,11 @@ public class MoveController : MonoBehaviour
             rb.velocity = transform.TransformDirection(locVel);
         }
 
-        if(horizontal > 0) {
+        if(horizontal < 0) {
             var locVel = transform.InverseTransformDirection(rb.velocity);
             locVel.x = -moveSpeed;
             rb.velocity = transform.TransformDirection(locVel);
-        } else if(horizontal < 0){
+        } else if(horizontal > 0){
             var locVel = transform.InverseTransformDirection(rb.velocity);
             locVel.x = moveSpeed;
             rb.velocity = transform.TransformDirection(locVel);
