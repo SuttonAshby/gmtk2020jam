@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerPad : MonoBehaviour
 {
     public bool inTrigger = false;
+    public bool isActive = false;
     public Renderer rend;
     Color defaultColor;
     
@@ -16,6 +17,10 @@ public class TriggerPad : MonoBehaviour
     }
 
     void OnTriggerEnter(){
+        if(isActive){
+            isActive = false;
+            GoalController.Instance.locationReached = true;            
+        }
         inTrigger = true;
     }
 
@@ -26,7 +31,6 @@ public class TriggerPad : MonoBehaviour
     void OnTriggerExit(){
         inTrigger = false;
     }
-
 
     // Update is called once per frame
     void Update()
@@ -43,5 +47,12 @@ public class TriggerPad : MonoBehaviour
             rend.material.color = defaultColor;
             rend.material.SetColor("_EmissionColor", defaultColor);
         }
+
+        if(isActive){
+            //cat visible
+        } else {
+            //cat invisible
+        }
+
     }
 }

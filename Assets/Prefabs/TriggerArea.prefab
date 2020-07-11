@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6129229512548143239}
   - component: {fileID: 6129229512548143232}
   m_Layer: 0
-  m_Name: TriggerPad
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,4 +202,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inTrigger: 0
+  isActive: 0
   rend: {fileID: 6129229512548143239}
