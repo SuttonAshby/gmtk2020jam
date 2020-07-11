@@ -820,9 +820,9 @@ MonoBehaviour:
   sensitivity: 2
   moveSpeed: 6
   rb: {fileID: 1580012634}
-  gravity: 15
+  gravity: 1
   isGrounded: 0
-  jumpSpeed: 8
+  jumpSpeed: 6
 --- !u!114 &1580012637
 MonoBehaviour:
   m_ObjectHideFlags: 0
