@@ -17,22 +17,19 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-   
-    void Update()
-    {
-        timer += Time.deltaTime;
-
-        // Check if we have reached beyond 2 seconds.
-        // Subtracting two is more accurate over time than resetting to zero.
-        if (timer > waitTime)
-        {
-            visualTime = timer;
-
-            // Remove the recorded 2 seconds.
-            timer = timer - waitTime;
-            Time.timeScale = scrollBar;
-        }
-    }
+   variableName = playedTime : float;
+   variableName = timeDisplay : GUIText;
+ 
+ void Start(){
+     playedTime = 0.0;
+ }    
+ 
+ void Update(){
+ 
+     playedTime += Time.deltaTime;
+     timeDisplay.text = Mathf.RoundToInt(playedTime).ToString();
+ 
+ }
 }
 
   
