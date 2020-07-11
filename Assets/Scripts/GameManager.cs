@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;      //Need this here?
 
 public class GameManager : MonoBehaviour {
 
@@ -17,19 +17,38 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+
+//Timer
+
    type variableName = playedTime : float;
    type variableName = timeDisplay : GUIText;
  
- void Start(){
+ public void Start(){
      playedTime = 0.0;
  }    
  
- void Update(){
+ public void Update(){
  
      playedTime += Time.deltaTime;
      timeDisplay.text = Mathf.RoundToInt(playedTime).ToString();
  
  }
+
+
+
+//Score system:
+
+     public int score = 0;
+
+    public void scoreUp () {
+        score++;
+        Debug.Log("Score: " + score);
+    }
+
+    public void scoreReset () {
+        score = 0;
+    }
+
 }
 
   
