@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: f1f377e68b50fde45ab8a6f440f64e0c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - chair: {fileID: 8300000, guid: 63fdb4490163fea4e94177efe6afdff9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 79f4052a806a1f84682dc391786ef43e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rustle: {fileID: 8300000, guid: a97ab66f2164874448ec7f4577143eb6, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

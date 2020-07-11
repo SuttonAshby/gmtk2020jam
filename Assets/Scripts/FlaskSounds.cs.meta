@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 2b5de1f974007ce4b9b33f1a7ee71af4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Clink: {fileID: 8300000, guid: 2f0ab753dabc15f41a3ad73269920892, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
