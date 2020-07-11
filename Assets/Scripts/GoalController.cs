@@ -34,6 +34,8 @@ public class GoalController : MonoBehaviour
         triggerPadThree = TriggerAreaThree.gameObject.GetComponent<TriggerPad>();
         triggerPadFour = TriggerAreaFour.gameObject.GetComponent<TriggerPad>();
         triggerPadFive = TriggerAreaFive.gameObject.GetComponent<TriggerPad>();
+
+        setNewLocation();
     }
     
     public bool locationReached;

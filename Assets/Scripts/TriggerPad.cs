@@ -8,12 +8,18 @@ public class TriggerPad : MonoBehaviour
     public bool isActive = false;
     public Renderer rend;
     Color defaultColor;
+
+    GameObject cat;
     
     // Start is called before the first frame update
     void Start()
     {
         defaultColor = rend.material.color;
         defaultColor.a = 0f;
+
+        cat = this.gameObject.transform.GetChild(0).GetChild(0).gameObject;
+        SetCatActive(false);
+        // Debug.Log(cat);
     }
 
     void OnTriggerEnter(){
@@ -22,10 +28,6 @@ public class TriggerPad : MonoBehaviour
             GoalController.Instance.locationReached = true;            
         }
         inTrigger = true;
-    }
-
-    void OnTriggerStay(){
-
     }
 
     void OnTriggerExit(){
@@ -50,9 +52,20 @@ public class TriggerPad : MonoBehaviour
 
         if(isActive){
             //cat visible
+            SetCatActive(true);
         } else {
             //cat invisible
+            SetCatActive(false);
         }
 
     }
+
+    void SetCatActive(bool active){
+        if(active){
+            cat.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        } else {
+            cat.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        }
+    }
+
 }
