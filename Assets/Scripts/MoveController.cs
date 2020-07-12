@@ -40,21 +40,73 @@ public class MoveController : MonoBehaviour
 
         var locVel = transform.InverseTransformDirection(rb.velocity);
 
-        if(vertical > 0) {
-            locVel.z = moveSpeed;
-            rb.velocity = transform.TransformDirection(locVel);
-        } else if(vertical < 0) {
-            locVel.z = -moveSpeed;
-            rb.velocity = transform.TransformDirection(locVel);
+        if(EventManager.Instance.reverseSameAxis && !EventManager.Instance.reverseDiffAxis){
+            if(vertical < 0) {
+                locVel.z = moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            } else if(vertical > 0) {
+                locVel.z = -moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            }
+
+            if(horizontal > 0) {
+                locVel.x = -moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            } else if(horizontal < 0){
+                locVel.x = moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            }
+        } else if(!EventManager.Instance.reverseSameAxis && EventManager.Instance.reverseDiffAxis){
+            if(horizontal > 0) {
+                locVel.z = moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            } else if(horizontal < 0) {
+                locVel.z = -moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            }
+
+            if(vertical < 0) {
+                locVel.x = -moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            } else if(vertical > 0){
+                locVel.x = moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            }
+        } else if(EventManager.Instance.reverseSameAxis && EventManager.Instance.reverseDiffAxis){
+            if(horizontal < 0) {
+                locVel.z = moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            } else if(horizontal > 0) {
+                locVel.z = -moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            }
+
+            if(vertical > 0) {
+                locVel.x = -moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            } else if(vertical < 0){
+                locVel.x = moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            }
+        } else {
+            if(vertical > 0) {
+                locVel.z = moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            } else if(vertical < 0) {
+                locVel.z = -moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            }
+
+            if(horizontal < 0) {
+                locVel.x = -moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            } else if(horizontal > 0){
+                locVel.x = moveSpeed;
+                rb.velocity = transform.TransformDirection(locVel);
+            }
         }
 
-        if(horizontal < 0) {
-            locVel.x = -moveSpeed;
-            rb.velocity = transform.TransformDirection(locVel);
-        } else if(horizontal > 0){
-            locVel.x = moveSpeed;
-            rb.velocity = transform.TransformDirection(locVel);
-        }
+
 
         if (isGrounded && Input.GetButton("Jump"))
         {

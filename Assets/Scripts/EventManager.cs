@@ -10,6 +10,8 @@ public class EventManager : MonoBehaviour
     public string camera = "changeCamera";
     public string drag = "changeDrag";
 
+    public string playerInput = "flipPlayerInput";
+
     public float minEventTimer = 10f;
     public float maxEventTimer = 25f;
     public float nextEventTimeLeft = 10f;
@@ -22,7 +24,11 @@ public class EventManager : MonoBehaviour
     private void Start () {
         allTriggers.Add(gravity);
         allTriggers.Add(camera);
+<<<<<<< HEAD
         allTriggers.Add(drag); 
+=======
+        allTriggers.Add(playerInput);
+>>>>>>> f4b08a002b426a00e3189caa6c91ecf3d369c41a
     }
 
 	private void Awake () {
@@ -88,6 +94,9 @@ public class EventManager : MonoBehaviour
         } else if (allTriggers[trigger] == camera){
             changeCamera(false);
             activeTriggers.Add(camera);
+        } else if (allTriggers[trigger] == playerInput){
+            flipPlayerInput(false);
+            activeTriggers.Add(playerInput);
         }
     }
 
@@ -97,16 +106,23 @@ public class EventManager : MonoBehaviour
             changeGravity(true);
             activeTriggers.Remove(gravity);
         } else if (allTriggers[trigger] == camera){
-            changeGravity(true);
+            changeCamera(true);
             activeTriggers.Remove(camera);
+        } else if (allTriggers[trigger] == playerInput){
+            flipPlayerInput(true);
+            activeTriggers.Remove(playerInput);
         }
     }
 
     void resetTriggers(){
         changeGravity(true);
         changeCamera(true);
+<<<<<<< HEAD
         changeDrag(true);
          
+=======
+        flipPlayerInput(true);
+>>>>>>> f4b08a002b426a00e3189caa6c91ecf3d369c41a
     }
 
     void changeGravity(bool setDefault){
@@ -146,8 +162,10 @@ public class EventManager : MonoBehaviour
             } else {
                 reverseDiffAxis = true;
             }
+            Debug.Log("Flip " + reverseSameAxis + " " + reverseDiffAxis );
         }
     }
+<<<<<<< HEAD
 
     public void changeDrag(bool setDefault){                                 
         if(setDefault){
@@ -157,6 +175,8 @@ public class EventManager : MonoBehaviour
         }
     }
 
+=======
+>>>>>>> f4b08a002b426a00e3189caa6c91ecf3d369c41a
 }
 
 
