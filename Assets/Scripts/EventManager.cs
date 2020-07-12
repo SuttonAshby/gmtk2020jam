@@ -167,9 +167,9 @@ public class EventManager : MonoBehaviour
 
     public void changeDrag(bool setDefault){                                 
         if(setDefault){
-            rigidbody.drag = 30f;
+            GetComponent<Rigidbody>().drag = 30f;
         } else {
-            rigidbody.drag = 0f;
+            GetComponent<Rigidbody>().drag = 0f;
         }
     }
 
