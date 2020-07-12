@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+    public bool isPlaying = false;
 
 //Timer
 
@@ -30,8 +31,11 @@ public class GameManager : MonoBehaviour {
  
  public void Update(){
  
-     playedTime += Time.deltaTime;
-     timeDisplay.text = "Time: " + Mathf.RoundToInt(playedTime);
+    if(isPlaying){
+        playedTime += Time.deltaTime;
+        timeDisplay.text = "Time: " + Mathf.RoundToInt(playedTime);
+    }
+     
      
  }
 

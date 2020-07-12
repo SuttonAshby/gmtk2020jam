@@ -11,11 +11,13 @@ public class GoalController : MonoBehaviour
     public GameObject TriggerAreaThree;
     public GameObject TriggerAreaFour;
     public GameObject TriggerAreaFive;
+    public GameObject TriggerAreaSix;
     private TriggerPad triggerPadOne;
     private TriggerPad triggerPadTwo;
     private TriggerPad triggerPadThree;
     private TriggerPad triggerPadFour;
     private TriggerPad triggerPadFive;
+    private TriggerPad triggerPadSix;
 
 	private void Awake () {
         //Initiate singleton
@@ -34,7 +36,9 @@ public class GoalController : MonoBehaviour
         triggerPadThree = TriggerAreaThree.gameObject.GetComponent<TriggerPad>();
         triggerPadFour = TriggerAreaFour.gameObject.GetComponent<TriggerPad>();
         triggerPadFive = TriggerAreaFive.gameObject.GetComponent<TriggerPad>();
+        triggerPadSix = TriggerAreaSix.gameObject.GetComponent<TriggerPad>();
 
+        //TODO hide console cat
         setNewLocation();
     }
     
@@ -47,11 +51,13 @@ public class GoalController : MonoBehaviour
             locationReached = false;
             timesFound++;
             setNewLocation();
+        } else {
+            UIManager.Instance.goToCredits();
         }
     }
 
     void setNewLocation(){
-        var chance = Random.Range(0, 100);
+        var chance = Random.Range(0, 120);
         if(chance < 20){
             triggerPadOne.isActive = true;
         } else if( 20 < chance && chance < 40){
@@ -60,8 +66,10 @@ public class GoalController : MonoBehaviour
             triggerPadThree.isActive = true;
         } else if( 60 < chance && chance < 80){
             triggerPadFour.isActive = true;
-        } else {
+        } else if( 80 < chance && chance < 100){
             triggerPadFive.isActive = true;
+        } else {
+            triggerPadSix.isActive = true;
         }
     }
 }

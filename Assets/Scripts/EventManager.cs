@@ -44,11 +44,14 @@ public class EventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(nextEventTimeLeft > 0 && timerActive == true){
-            nextEventTimeLeft -= Time.deltaTime;
-        } else {
-            triggerRandomEffect();
+        if(GameManager.Instance.isPlaying){
+            if(nextEventTimeLeft > 0 && timerActive == true){
+                nextEventTimeLeft -= Time.deltaTime;
+            } else {
+                triggerRandomEffect();
+            }
         }
+        
     }
 
     void triggerRandomEffect(){
