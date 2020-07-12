@@ -12,6 +12,12 @@ public class EventManager : MonoBehaviour
     public string big = "changeSizeBig";
     public string small = "changeSizeSmall";
     public string playerInput = "flipPlayerInput";
+    public string teleport = "movePlayer";
+
+    public AudioClip realityAltered;
+    public AudioClip normalcyRestored;
+    public AudioClip gravityAltered;
+    public AudioSource audio;
 
     public Rigidbody playerRb;
 
@@ -33,6 +39,7 @@ public class EventManager : MonoBehaviour
         allTriggers.Add(big);
         allTriggers.Add(small);
         allTriggers.Add(playerInput);
+        allTriggers.Add(teleport);
     }
 
 	private void Awake () {
@@ -81,6 +88,7 @@ public class EventManager : MonoBehaviour
             //reset
             Debug.Log("Resetting");
             resetTriggers();
+            playNormalcyRestored();
 
         }
         setNewTimer();
@@ -97,33 +105,45 @@ public class EventManager : MonoBehaviour
             changeGravity(false);
             if(!activeTriggers.Contains(gravity)){
                 activeTriggers.Add(gravity);
+                playGravityAltered();
             }
         } else if (allTriggers[trigger] == camera){
             changeCamera(false);
             if(!activeTriggers.Contains(camera)){
                 activeTriggers.Add(camera);
+                playRealityAltered();
             }
         } else if (allTriggers[trigger] == playerInput){
             flipPlayerInput(false);
             if(!activeTriggers.Contains(playerInput)){
                 activeTriggers.Add(playerInput);
+                playRealityAltered();
             }
         } else if (allTriggers[trigger] == drag){
             changeDrag(false);
             if(!activeTriggers.Contains(drag)){
                 activeTriggers.Add(drag);
+                playRealityAltered();
             }
         } else if (allTriggers[trigger] == big){
             changeSizeBig(false);
             if(!activeTriggers.Contains(big)){
                 activeTriggers.Add(big);
+                playRealityAltered();
             }
         } else if (allTriggers[trigger] == small){
             changeSizeSmall(false);
             if(!activeTriggers.Contains(small)){
                 activeTriggers.Add(small);
+                playRealityAltered();
             }
-        }
+        } 
+        // else if (allTriggers[trigger] == teleport){
+        //     movePlayer(false);
+        //     if(!activeTriggers.Contains(teleport)){
+        //         activeTriggers.Add(teleport);
+        //     }
+        // }
     }
 
     void removeRandomTrigger(){
@@ -146,7 +166,11 @@ public class EventManager : MonoBehaviour
         } else if (allTriggers[trigger] == small){
             changeSizeSmall(true);
             activeTriggers.Remove(small);
-        }
+        } 
+        // else if (allTriggers[trigger] == teleport){
+        //     movePlayer(true);
+        //     activeTriggers.Remove(teleport);
+        // }
     }
 
     void resetTriggers(){
@@ -156,6 +180,7 @@ public class EventManager : MonoBehaviour
         flipPlayerInput(true);
         changeSizeBig(true);
         changeSizeSmall(true);
+        // movePlayer(true);
     }
 
     void changeGravity(bool setDefault){
@@ -211,7 +236,7 @@ public class EventManager : MonoBehaviour
         if(setDefault){
             playerRb.transform.localScale = new Vector3(1f, 1f, 1f);
         } else {
-            playerRb.transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
+            playerRb.transform.localScale = new Vector3(3f, 3f, 3f);
             Debug.Log("Big");
         }
     }
@@ -220,10 +245,35 @@ public class EventManager : MonoBehaviour
         if(setDefault){
             playerRb.transform.localScale = new Vector3(1f, 1f, 1f);
         } else {
-            playerRb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            playerRb.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
             Debug.Log("Small");
         }
     }
+    public void playNormalcyRestored(){
+        audio.clip  = normalcyRestored;
+        audio.Play();
+    }
+    public void playRealityAltered(){
+        audio.clip = realityAltered;
+        audio.Play();
+    }
+
+    public void playGravityAltered(){
+        audio.clip = gravityAltered;
+        audio.Play();   
+    }
+
+ //public Transform teleportTarget; 
+    // void movePlayer(bool setDefault){
+    //     if(setDefault){
+    //         playerRb.transform.position == false;
+    //     } else { 
+    //         playerRb.transform.position = new Vector3(pox.x -300, pos.y, pos.z);
+    //         Debug.Log("Teleport");
+    //   }
+
 }
+
+
 
 

@@ -11,6 +11,9 @@ public class GoalController : MonoBehaviour
     public GameObject TriggerAreaThree;
     public GameObject TriggerAreaFour;
     public GameObject TriggerAreaFive;
+
+    public AudioSource audio;
+    public AudioClip locationChanged;
     public GameObject TriggerAreaSix;
     private TriggerPad triggerPadOne;
     private TriggerPad triggerPadTwo;
@@ -52,7 +55,7 @@ public class GoalController : MonoBehaviour
             timesFound++;
             setNewLocation();
         } else {
-            UIManager.Instance.goToCredits();
+            MiniUIManager.Instance.showPlayAgain();
         }
     }
 
@@ -71,5 +74,12 @@ public class GoalController : MonoBehaviour
         } else {
             triggerPadSix.isActive = true;
         }
+        playLocationChanged();
     }
+
+    public void playLocationChanged(){
+        audio.clip = locationChanged;
+        audio.Play();
+    }
+
 }
