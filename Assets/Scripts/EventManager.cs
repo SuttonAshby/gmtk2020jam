@@ -7,6 +7,7 @@ public class EventManager : MonoBehaviour
     public static EventManager Instance {get; private set; }
     //trigger strings
     public string gravity = "changeGravity";
+    public string camera = "changeCamera";
 
     public float minEventTimer = 10f;
     public float maxEventTimer = 25f;
@@ -19,6 +20,7 @@ public class EventManager : MonoBehaviour
 
     private void Start () {
         allTriggers.Add(gravity);
+        allTriggers.Add(camera);
     }
 
 	private void Awake () {
@@ -64,6 +66,7 @@ public class EventManager : MonoBehaviour
             //reset
             Debug.Log("Resetting");
             changeGravity(true);
+            changeCamera(true);
 
         }
         setNewTimer();
@@ -81,14 +84,20 @@ public class EventManager : MonoBehaviour
             if(!activeTriggers.Contains(gravity)){
                 activeTriggers.Add(gravity);
             }
+        } else if (allTriggers[trigger] == camera){
+            changeCamera(false);
+            activeTriggers.Add(camera);
         }
     }
 
     void removeRandomTrigger(){
         int trigger = Random.Range(0, activeTriggers.Count);
-        if(allTriggers[trigger] == "changeGravity"){
+        if(allTriggers[trigger] == gravity){
             changeGravity(true);
-            activeTriggers.Remove("changeGravity");
+            activeTriggers.Remove(gravity);
+        } else if (allTriggers[trigger] == camera){
+            changeGravity(true);
+            activeTriggers.Remove(camera);
         }
     }
 
@@ -99,8 +108,20 @@ public class EventManager : MonoBehaviour
         int[] gravityVals = {0, -5, -10, 10};
         var newVal = Random.Range(0, gravityVals.Length);
         Physics.gravity = new Vector3(0, gravityVals[newVal], 0);
-        Debug.Log(Physics.gravity);
+        Debug.Log("Gravity" + gravityVals[newVal]);
         }  
+    }
+
+    public GameObject cameraObject;
+    void changeCamera(bool setDefault){
+        if(setDefault){
+            cameraObject.transform.Rotate(0,0,0);
+        } else {
+            int[] cameraVals = {0, 90, 180, 270};
+            var newVal = Random.Range(0, cameraVals.Length);
+            cameraObject.transform.Rotate(0, 0, cameraVals[newVal]);
+            Debug.Log("Camera" + cameraVals[newVal]); 
+        }
     }
 
 }
