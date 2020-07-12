@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour
     //trigger strings
     public string gravity = "changeGravity";
     public string camera = "changeCamera";
+    public string drag = "changeDrag";
 
     public string playerInput = "flipPlayerInput";
 
@@ -23,6 +24,7 @@ public class EventManager : MonoBehaviour
     private void Start () {
         allTriggers.Add(gravity);
         allTriggers.Add(camera);
+        allTriggers.Add(drag); 
         allTriggers.Add(playerInput);
     }
 
@@ -92,6 +94,9 @@ public class EventManager : MonoBehaviour
         } else if (allTriggers[trigger] == playerInput){
             flipPlayerInput(false);
             activeTriggers.Add(playerInput);
+        } else if (allTriggers[trigger] == drag){
+            changeDrag(false);
+            activeTriggers.Add(drag);
         }
     }
 
@@ -106,12 +111,17 @@ public class EventManager : MonoBehaviour
         } else if (allTriggers[trigger] == playerInput){
             flipPlayerInput(true);
             activeTriggers.Remove(playerInput);
+        } else if (allTriggers[trigger] == drag){
+            changeDrag(true);
+            activeTriggers.Remove(drag);
         }
     }
 
     void resetTriggers(){
         changeGravity(true);
         changeCamera(true);
+        changeDrag(true);
+         
         flipPlayerInput(true);
     }
 
@@ -154,6 +164,15 @@ public class EventManager : MonoBehaviour
             Debug.Log("Flip " + reverseSameAxis + " " + reverseDiffAxis );
         }
     }
+
+    public void changeDrag(bool setDefault){                                 
+        if(setDefault){
+            rigidbody.drag = 30f;
+        } else {
+            rigidbody.drag = 0f;
+        }
+    }
+
 }
 
 
