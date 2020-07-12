@@ -24,8 +24,10 @@ public class GameManager : MonoBehaviour {
 
    public float playedTime;
    public Text timeDisplay;
+   public Text foundDisplay;
 
  public void Start(){
+     isPlaying = true;
      playedTime = 0f;
  }    
  
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour {
     if(isPlaying){
         playedTime += Time.deltaTime;
         timeDisplay.text = "Time: " + Mathf.RoundToInt(playedTime);
+        foundDisplay.text = "Found: " + GoalController.Instance.timesFound;
     }
      
      

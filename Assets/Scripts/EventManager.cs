@@ -13,6 +13,11 @@ public class EventManager : MonoBehaviour
     public string small = "changeSizeSmall";
     public string playerInput = "flipPlayerInput";
 
+    public AudioClip realityAltered;
+    public AudioClip normalcyRestored;
+    public AudioClip gravityAltered;
+    public AudioSource audio;
+
     public Rigidbody playerRb;
 
     public float minEventTimer = 10f;
@@ -81,6 +86,7 @@ public class EventManager : MonoBehaviour
             //reset
             Debug.Log("Resetting");
             resetTriggers();
+            playNormalcyRestored();
 
         }
         setNewTimer();
@@ -97,31 +103,37 @@ public class EventManager : MonoBehaviour
             changeGravity(false);
             if(!activeTriggers.Contains(gravity)){
                 activeTriggers.Add(gravity);
+                playGravityAltered();
             }
         } else if (allTriggers[trigger] == camera){
             changeCamera(false);
             if(!activeTriggers.Contains(camera)){
                 activeTriggers.Add(camera);
+                playRealityAltered();
             }
         } else if (allTriggers[trigger] == playerInput){
             flipPlayerInput(false);
             if(!activeTriggers.Contains(playerInput)){
                 activeTriggers.Add(playerInput);
+                playRealityAltered();
             }
         } else if (allTriggers[trigger] == drag){
             changeDrag(false);
             if(!activeTriggers.Contains(drag)){
                 activeTriggers.Add(drag);
+                playRealityAltered();
             }
         } else if (allTriggers[trigger] == big){
             changeSizeBig(false);
             if(!activeTriggers.Contains(big)){
                 activeTriggers.Add(big);
+                playRealityAltered();
             }
         } else if (allTriggers[trigger] == small){
             changeSizeSmall(false);
             if(!activeTriggers.Contains(small)){
                 activeTriggers.Add(small);
+                playRealityAltered();
             }
         }
     }
@@ -209,19 +221,36 @@ public class EventManager : MonoBehaviour
 
     public void changeSizeBig(bool setDefault){
         if(setDefault){
-            playerRb.transform.localscale = new Vector3(1f, 1f, 1f);
+            playerRb.transform.localScale = new Vector3(1f, 1f, 1f);
         } else {
-            playerRb.transform.localscale = new Vector3(1.8f, 1.8f, 1.8f);
+            playerRb.transform.localScale = new Vector3(3f, 3f, 3f);
+            Debug.Log("Big");
         }
     }
 
     public void changeSizeSmall(bool setDefault){
         if(setDefault){
-            playerRb.transform.localscale = new Vector3(1f, 1f, 1f);
+            playerRb.transform.localScale = new Vector3(1f, 1f, 1f);
         } else {
-            playerRb.transform.localscale = new Vector3(0.1f, 0.1f, 0.1f);
+            playerRb.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            Debug.Log("Small");
         }
     }
+    public void playNormalcyRestored(){
+        audio.clip  = normalcyRestored;
+        audio.Play();
+    }
+    public void playRealityAltered(){
+        audio.clip = realityAltered;
+        audio.Play();
+    }
+
+    public void playGravityAltered(){
+        audio.clip = gravityAltered;
+        audio.Play();
+    }
 }
+
+
 
 
