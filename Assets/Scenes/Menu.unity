@@ -149,15 +149,15 @@ RectTransform:
   m_GameObject: {fileID: 90037947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3540841, y: 1.3540841, z: 1.3540841}
+  m_LocalScale: {x: 0.9680823, y: 1.9972742, z: 1.3540841}
   m_Children: []
   m_Father: {fileID: 1144069241}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 317, y: 77}
-  m_SizeDelta: {x: 403.448, y: 75.69302}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 106, y: 135}
+  m_SizeDelta: {x: 1000, y: 75.69302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90037949
 MonoBehaviour:
@@ -195,7 +195,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ee98e35b18d2fa84bbc924d847a59d98, type: 3}
-    m_FontSize: 65
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Catastrophe!
+  m_Text: Astronomi-cat-astrophe!
 --- !u!222 &90037951
 CanvasRenderer:
   m_ObjectHideFlags: 0
