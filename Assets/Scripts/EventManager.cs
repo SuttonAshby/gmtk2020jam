@@ -9,7 +9,8 @@ public class EventManager : MonoBehaviour
     public string gravity = "changeGravity";
     public string camera = "changeCamera";
     public string drag = "changeDrag";
-
+    public string big = "changeSizeBig";
+    public string small = "changeSizeSmall";
     public string playerInput = "flipPlayerInput";
 
     public Rigidbody playerRb;
@@ -29,6 +30,8 @@ public class EventManager : MonoBehaviour
         allTriggers.Add(gravity);
         allTriggers.Add(camera);
         allTriggers.Add(drag); 
+        allTriggers.Add(big);
+        allTriggers.Add(small);
         allTriggers.Add(playerInput);
     }
 
@@ -110,6 +113,16 @@ public class EventManager : MonoBehaviour
             if(!activeTriggers.Contains(drag)){
                 activeTriggers.Add(drag);
             }
+        } else if (allTriggers[trigger] == big){
+            changeSizeBig(false);
+            if(!activeTriggers.Contains(big)){
+                activeTriggers.Add(big);
+            }
+        } else if (allTriggers[trigger] == small){
+            changeSizeSmall(false);
+            if(!activeTriggers.Contains(small)){
+                activeTriggers.Add(small);
+            }
         }
     }
 
@@ -127,6 +140,12 @@ public class EventManager : MonoBehaviour
         } else if (allTriggers[trigger] == drag){
             changeDrag(true);
             activeTriggers.Remove(drag);
+        } else if (allTriggers[trigger] == big){
+            changeSizeBig(true);
+            activeTriggers.Remove(big);
+        } else if (allTriggers[trigger] == small){
+            changeSizeSmall(true);
+            activeTriggers.Remove(small);
         }
     }
 
@@ -135,6 +154,8 @@ public class EventManager : MonoBehaviour
         changeCamera(true);
         changeDrag(true);     
         flipPlayerInput(true);
+        changeSizeBig(true);
+        changeSizeSmall(true);
     }
 
     void changeGravity(bool setDefault){
@@ -186,6 +207,21 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public void changeSizeBig(bool setDefault){
+        if(setDefault){
+            playerRb.transform.localscale = new Vector3(1f, 1f, 1f);
+        } else {
+            playerRb.transform.localscale = new Vector3(1.8f, 1.8f, 1.8f);
+        }
+    }
+
+    public void changeSizeSmall(bool setDefault){
+        if(setDefault){
+            playerRb.transform.localscale = new Vector3(1f, 1f, 1f);
+        } else {
+            playerRb.transform.localscale = new Vector3(0.1f, 0.1f, 0.1f);
+        }
+    }
 }
 
 
