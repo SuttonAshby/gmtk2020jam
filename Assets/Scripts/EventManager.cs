@@ -12,6 +12,8 @@ public class EventManager : MonoBehaviour
 
     public string playerInput = "flipPlayerInput";
 
+    public Rigidbody playerRb;
+
     public float minEventTimer = 10f;
     public float maxEventTimer = 25f;
     public float nextEventTimeLeft = 10f;
@@ -22,6 +24,8 @@ public class EventManager : MonoBehaviour
     List<string> allTriggers = new List<string>();
 
     private void Start () {
+        playerRb = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
+
         allTriggers.Add(gravity);
         allTriggers.Add(camera);
         allTriggers.Add(drag); 
@@ -90,13 +94,19 @@ public class EventManager : MonoBehaviour
             }
         } else if (allTriggers[trigger] == camera){
             changeCamera(false);
-            activeTriggers.Add(camera);
+            if(!activeTriggers.Contains(camera)){
+                activeTriggers.Add(camera);
+            }
         } else if (allTriggers[trigger] == playerInput){
             flipPlayerInput(false);
-            activeTriggers.Add(playerInput);
+            if(!activeTriggers.Contains(playerInput)){
+                activeTriggers.Add(playerInput);
+            }
         } else if (allTriggers[trigger] == drag){
             changeDrag(false);
-            activeTriggers.Add(drag);
+            if(!activeTriggers.Contains(drag)){
+                activeTriggers.Add(drag);
+            }
         }
     }
 
@@ -120,8 +130,7 @@ public class EventManager : MonoBehaviour
     void resetTriggers(){
         changeGravity(true);
         changeCamera(true);
-        changeDrag(true);
-         
+        changeDrag(true);     
         flipPlayerInput(true);
     }
 
@@ -167,9 +176,10 @@ public class EventManager : MonoBehaviour
 
     public void changeDrag(bool setDefault){                                 
         if(setDefault){
-            GetComponent<Rigidbody>().drag = 30f;
+            playerRb.drag = 30f;
         } else {
-            GetComponent<Rigidbody>().drag = 0f;
+            playerRb.drag = 0f;
+            Debug.Log("Drag");
         }
     }
 

@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 1580012637}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Ground
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1001,9 +1001,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: changeGravity
+  camera: changeCamera
+  drag: changeDrag
+  playerInput: flipPlayerInput
+  playerRb: {fileID: 0}
   minEventTimer: 5
   maxEventTimer: 10
   nextEventTimeLeft: 10
+  cameraAngle: 0
+  reverseSameAxis: 0
+  reverseDiffAxis: 0
 --- !u!4 &2025106555
 Transform:
   m_ObjectHideFlags: 0
