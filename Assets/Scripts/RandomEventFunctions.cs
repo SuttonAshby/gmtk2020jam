@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,4 +51,4 @@ public void causeDrag(add the tag for the object?) {
 //   collider.material.dynamicFriction = 0;
 //   collider.material.staticFriction = 0;
 
-
+*/
