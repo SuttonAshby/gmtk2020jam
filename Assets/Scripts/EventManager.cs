@@ -24,11 +24,8 @@ public class EventManager : MonoBehaviour
     private void Start () {
         allTriggers.Add(gravity);
         allTriggers.Add(camera);
-<<<<<<< HEAD
         allTriggers.Add(drag); 
-=======
         allTriggers.Add(playerInput);
->>>>>>> f4b08a002b426a00e3189caa6c91ecf3d369c41a
     }
 
 	private void Awake () {
@@ -97,6 +94,9 @@ public class EventManager : MonoBehaviour
         } else if (allTriggers[trigger] == playerInput){
             flipPlayerInput(false);
             activeTriggers.Add(playerInput);
+        } else if (allTriggers[trigger] == drag){
+            changeDrag(false);
+            activeTriggers.Add(drag);
         }
     }
 
@@ -111,18 +111,18 @@ public class EventManager : MonoBehaviour
         } else if (allTriggers[trigger] == playerInput){
             flipPlayerInput(true);
             activeTriggers.Remove(playerInput);
+        } else if (allTriggers[trigger] == drag){
+            changeDrag(true);
+            activeTriggers.Remove(drag);
         }
     }
 
     void resetTriggers(){
         changeGravity(true);
         changeCamera(true);
-<<<<<<< HEAD
         changeDrag(true);
          
-=======
         flipPlayerInput(true);
->>>>>>> f4b08a002b426a00e3189caa6c91ecf3d369c41a
     }
 
     void changeGravity(bool setDefault){
@@ -165,18 +165,15 @@ public class EventManager : MonoBehaviour
             Debug.Log("Flip " + reverseSameAxis + " " + reverseDiffAxis );
         }
     }
-<<<<<<< HEAD
 
     public void changeDrag(bool setDefault){                                 
         if(setDefault){
-            rb.drag = 30f;
+            rigidbody.drag = 30f;
         } else {
-            rb.drag = 0f;
+            rigidbody.drag = 0f;
         }
     }
 
-=======
->>>>>>> f4b08a002b426a00e3189caa6c91ecf3d369c41a
 }
 
 
