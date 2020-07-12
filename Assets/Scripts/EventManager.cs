@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour
     //trigger strings
     public string gravity = "changeGravity";
     public string camera = "changeCamera";
+    public string drag = "changeDrag";
 
     public float minEventTimer = 10f;
     public float maxEventTimer = 25f;
@@ -21,6 +22,7 @@ public class EventManager : MonoBehaviour
     private void Start () {
         allTriggers.Add(gravity);
         allTriggers.Add(camera);
+        allTriggers.Add(drag); 
     }
 
 	private void Awake () {
@@ -103,6 +105,8 @@ public class EventManager : MonoBehaviour
     void resetTriggers(){
         changeGravity(true);
         changeCamera(true);
+        changeDrag(true);
+         
     }
 
     void changeGravity(bool setDefault){
@@ -142,6 +146,14 @@ public class EventManager : MonoBehaviour
             } else {
                 reverseDiffAxis = true;
             }
+        }
+    }
+
+    public void changeDrag(bool setDefault){                                 
+        if(setDefault){
+            rb.drag = 30f;
+        } else {
+            rb.drag = 0f;
         }
     }
 
