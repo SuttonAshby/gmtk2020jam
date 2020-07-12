@@ -12,6 +12,7 @@ public class EventManager : MonoBehaviour
     public string big = "changeSizeBig";
     public string small = "changeSizeSmall";
     public string playerInput = "flipPlayerInput";
+    public string teleport = "movePlayer";
 
     public AudioClip realityAltered;
     public AudioClip normalcyRestored;
@@ -38,6 +39,7 @@ public class EventManager : MonoBehaviour
         allTriggers.Add(big);
         allTriggers.Add(small);
         allTriggers.Add(playerInput);
+        allTriggers.Add(teleport);
     }
 
 	private void Awake () {
@@ -135,7 +137,13 @@ public class EventManager : MonoBehaviour
                 activeTriggers.Add(small);
                 playRealityAltered();
             }
-        }
+        } 
+        // else if (allTriggers[trigger] == teleport){
+        //     movePlayer(false);
+        //     if(!activeTriggers.Contains(teleport)){
+        //         activeTriggers.Add(teleport);
+        //     }
+        // }
     }
 
     void removeRandomTrigger(){
@@ -158,7 +166,11 @@ public class EventManager : MonoBehaviour
         } else if (allTriggers[trigger] == small){
             changeSizeSmall(true);
             activeTriggers.Remove(small);
-        }
+        } 
+        // else if (allTriggers[trigger] == teleport){
+        //     movePlayer(true);
+        //     activeTriggers.Remove(teleport);
+        // }
     }
 
     void resetTriggers(){
@@ -168,6 +180,7 @@ public class EventManager : MonoBehaviour
         flipPlayerInput(true);
         changeSizeBig(true);
         changeSizeSmall(true);
+        // movePlayer(true);
     }
 
     void changeGravity(bool setDefault){
@@ -247,8 +260,18 @@ public class EventManager : MonoBehaviour
 
     public void playGravityAltered(){
         audio.clip = gravityAltered;
-        audio.Play();
+        audio.Play();   
     }
+
+ //public Transform teleportTarget; 
+    // void movePlayer(bool setDefault){
+    //     if(setDefault){
+    //         playerRb.transform.position == false;
+    //     } else { 
+    //         playerRb.transform.position = new Vector3(pox.x -300, pos.y, pos.z);
+    //         Debug.Log("Teleport");
+    //   }
+
 }
 
 
