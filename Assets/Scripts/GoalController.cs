@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalController : MonoBehaviour
 {
@@ -55,7 +56,9 @@ public class GoalController : MonoBehaviour
             timesFound++;
             setNewLocation();
         } else {
-            MiniUIManager.Instance.showPlayAgain();
+            SceneManager.LoadScene("Victory", LoadSceneMode.Single);
+            GameManager.Instance.playedTime = 0f;
+            timesFound = 0;
         }
     }
 

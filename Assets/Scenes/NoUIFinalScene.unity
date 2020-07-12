@@ -857,6 +857,7 @@ MonoBehaviour:
   big: changeSizeBig
   small: changeSizeSmall
   playerInput: flipPlayerInput
+  teleport: movePlayer
   realityAltered: {fileID: 8300000, guid: 3568fd6a4b8fd43ce88478f2bccce0d0, type: 3}
   normalcyRestored: {fileID: 8300000, guid: 8bb10abfe67e6ff458e119a08689f25f, type: 3}
   gravityAltered: {fileID: 8300000, guid: 77eae137a41899a4584ca516ff4aae13, type: 3}
@@ -32479,6 +32480,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194229}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -32647,6 +32649,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fffff94aaa2c7b743b43d947e52aa04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &967558780
 GameObject:
   m_ObjectHideFlags: 0
@@ -60267,7 +60281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1416731909
 Transform:
   m_ObjectHideFlags: 0
