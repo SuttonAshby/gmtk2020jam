@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void goToMainMenu(){
+        Debug.Log("GO TO MAIN MENU FUNC");
         mainMenu.alpha = 1;
         mainMenu.interactable = true;
         mainMenu.blocksRaycasts = true;
