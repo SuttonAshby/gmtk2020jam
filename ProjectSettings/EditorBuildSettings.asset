@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SemokMess.unity
+    guid: ac2a70e059873be43ace894d5f30af3b
   m_configObjects: {}
