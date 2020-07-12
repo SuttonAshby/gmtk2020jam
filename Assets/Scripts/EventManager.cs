@@ -126,15 +126,17 @@ public class EventManager : MonoBehaviour
         }  
     }
 
-    public GameObject cameraObject;
+    // public GameObject cameraObject;
+    public float cameraAngle = 0f;
     //needs to be fixed with camera controller
     void changeCamera(bool setDefault){
         if(setDefault){
-            cameraObject.transform.Rotate(0,0,0);
+            cameraAngle = 0f;
         } else {
-            int[] cameraVals = {0, 90, 180, 270};
+            float[] cameraVals = {0f, 90f, 180f, 270f};
             var newVal = Random.Range(0, cameraVals.Length);
-            cameraObject.transform.Rotate(0, 0, cameraVals[newVal]);
+            // cameraObject.transform.Rotate(0, 0, cameraVals[newVal]);
+            cameraAngle = cameraVals[newVal];
             Debug.Log("Camera" + cameraVals[newVal]); 
         }
     }
