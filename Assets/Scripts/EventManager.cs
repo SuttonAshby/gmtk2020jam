@@ -65,8 +65,7 @@ public class EventManager : MonoBehaviour
         } else {
             //reset
             Debug.Log("Resetting");
-            changeGravity(true);
-            changeCamera(true);
+            resetTriggers();
 
         }
         setNewTimer();
@@ -101,6 +100,11 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    void resetTriggers(){
+        changeGravity(true);
+        changeCamera(true);
+    }
+
     void changeGravity(bool setDefault){
         if(setDefault){
             Physics.gravity = new Vector3(0, -10, 0);
@@ -113,6 +117,7 @@ public class EventManager : MonoBehaviour
     }
 
     public GameObject cameraObject;
+    //needs to be fixed with camera controller
     void changeCamera(bool setDefault){
         if(setDefault){
             cameraObject.transform.Rotate(0,0,0);
@@ -121,6 +126,22 @@ public class EventManager : MonoBehaviour
             var newVal = Random.Range(0, cameraVals.Length);
             cameraObject.transform.Rotate(0, 0, cameraVals[newVal]);
             Debug.Log("Camera" + cameraVals[newVal]); 
+        }
+    }
+
+    public bool reverseSameAxis = false;
+    public bool reverseDiffAxis = false;
+    void flipPlayerInput(bool setDefault){
+         if(setDefault){
+            reverseDiffAxis = false;
+            reverseSameAxis = false;
+        } else {
+            var newVal = Random.Range(0,2);
+            if(newVal == 0){
+                reverseSameAxis = true;
+            } else {
+                reverseDiffAxis = true;
+            }
         }
     }
 
