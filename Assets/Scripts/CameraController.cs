@@ -23,13 +23,4 @@ public class CameraController : MonoBehaviour
         transform.eulerAngles = new Vector3(0,rotation.y, rotation.z) * lookSpeed;
         Camera.main.transform.localRotation = Quaternion.Euler(rotation.x * lookSpeed, 0, 0);
     }
-
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     rotation.y += Input.GetAxis ("Mouse X");
-    //     // rotation.x += Input.GetAxis ("Mouse X");
-    //     // rotation.y = Mathf.Clamp (rotation.y, -60f, 60f);
-    //     transform.eulerAngles = (Vector2)rotation * speed;        
-    // }
 }
