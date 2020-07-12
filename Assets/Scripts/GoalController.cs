@@ -55,7 +55,7 @@ public class GoalController : MonoBehaviour
             locationReached = false;
             timesFound++;
             setNewLocation();
-        } else {
+        } else if (locationReached && timesFound > 9) {
             SceneManager.LoadScene("Victory", LoadSceneMode.Single);
             GameManager.Instance.playedTime = 0f;
             timesFound = 0;

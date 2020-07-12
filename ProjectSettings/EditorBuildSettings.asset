@@ -14,7 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: c0ec72158d01bf2479fa33e78fd49ebf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 3d557f3d2ff61254f9875ea506796ba1
+  - enabled: 1
+    path: Assets/Scenes/NoUIFinalScene.unity
+    guid: b5068fc1053ec4dc4a0d3e1cc4a32b23
+  - enabled: 1
+    path: Assets/Scenes/EasterEgg.unity
+    guid: 1dd25922ae8861546b6da6c4d0074725
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 0d4249ab962ce4a409f038f418a8c54f
   m_configObjects: {}

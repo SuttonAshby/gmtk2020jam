@@ -39,7 +39,7 @@ public class EventManager : MonoBehaviour
         allTriggers.Add(big);
         allTriggers.Add(small);
         allTriggers.Add(playerInput);
-        allTriggers.Add(teleport);
+        // allTriggers.Add(teleport);
     }
 
 	private void Awake () {
