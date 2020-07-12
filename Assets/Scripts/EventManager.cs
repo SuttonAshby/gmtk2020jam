@@ -209,17 +209,19 @@ public class EventManager : MonoBehaviour
 
     public void changeSizeBig(bool setDefault){
         if(setDefault){
-            playerRb.transform.localscale = new Vector3(1f, 1f, 1f);
+            playerRb.transform.localScale = new Vector3(1f, 1f, 1f);
         } else {
-            playerRb.transform.localscale = new Vector3(1.8f, 1.8f, 1.8f);
+            playerRb.transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
+            Debug.Log("Big");
         }
     }
 
     public void changeSizeSmall(bool setDefault){
         if(setDefault){
-            playerRb.transform.localscale = new Vector3(1f, 1f, 1f);
+            playerRb.transform.localScale = new Vector3(1f, 1f, 1f);
         } else {
-            playerRb.transform.localscale = new Vector3(0.1f, 0.1f, 0.1f);
+            playerRb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            Debug.Log("Small");
         }
     }
 }
