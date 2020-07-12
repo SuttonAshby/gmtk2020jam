@@ -9,6 +9,8 @@ public class EventManager : MonoBehaviour
     public string gravity = "changeGravity";
     public string camera = "changeCamera";
 
+    public string playerInput = "flipPlayerInput";
+
     public float minEventTimer = 10f;
     public float maxEventTimer = 25f;
     public float nextEventTimeLeft = 10f;
@@ -21,6 +23,7 @@ public class EventManager : MonoBehaviour
     private void Start () {
         allTriggers.Add(gravity);
         allTriggers.Add(camera);
+        allTriggers.Add(playerInput);
     }
 
 	private void Awake () {
@@ -86,6 +89,9 @@ public class EventManager : MonoBehaviour
         } else if (allTriggers[trigger] == camera){
             changeCamera(false);
             activeTriggers.Add(camera);
+        } else if (allTriggers[trigger] == playerInput){
+            flipPlayerInput(false);
+            activeTriggers.Add(playerInput);
         }
     }
 
@@ -95,14 +101,18 @@ public class EventManager : MonoBehaviour
             changeGravity(true);
             activeTriggers.Remove(gravity);
         } else if (allTriggers[trigger] == camera){
-            changeGravity(true);
+            changeCamera(true);
             activeTriggers.Remove(camera);
+        } else if (allTriggers[trigger] == playerInput){
+            flipPlayerInput(true);
+            activeTriggers.Remove(playerInput);
         }
     }
 
     void resetTriggers(){
         changeGravity(true);
         changeCamera(true);
+        flipPlayerInput(true);
     }
 
     void changeGravity(bool setDefault){
@@ -142,9 +152,9 @@ public class EventManager : MonoBehaviour
             } else {
                 reverseDiffAxis = true;
             }
+            Debug.Log("Flip " + reverseSameAxis + " " + reverseDiffAxis );
         }
     }
-
 }
 
 
